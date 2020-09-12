@@ -30,7 +30,7 @@ public class NPCFollower : MonoBehaviour
             targetDistance = shot.distance;
             if (targetDistance >= allowedDistance)
             {
-                followSpeed = 0.01f;
+                followSpeed = 0.025f;
                 //  follower.GetComponent<Animation>().Play("ANIMATION_NAME_RUNNING"); // RUN Animation
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, followSpeed);
             }
