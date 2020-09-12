@@ -25,7 +25,7 @@ public class EnemyStats : MonoBehaviour
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<PlayerStats>().calcExperience(level);
-            GameObject.Find(gameObject.name + "SpawnPoint").GetComponent<EnemyRespawn>().Death = true;
+            GameObject.Find(gameObject.name + "SpawnPoint").GetComponent<EnemyRespawn>().dead = true;
 
             Destroy(this.gameObject);
         }

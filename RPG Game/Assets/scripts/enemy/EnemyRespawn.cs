@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class EnemyRespawn : MonoBehaviour
 {
-    public bool Death;
-    public float Timer;
-    public float Cooldown;
-    public GameObject Enemy;
-    public string EnemyName;
-    GameObject LastEnemy;
+    public bool dead;
+    public float timer;
+    public float cooldown;
+    public GameObject enemy;
+    public string enemyName;
+    GameObject lastEnemy;
 
     // Use this for initialization
     void Start()
     {
-        Death = true;
-        this.gameObject.name = EnemyName + "SpawnPoint";
+        dead = true;
+        this.gameObject.name = enemyName + "SpawnPoint";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Death == true)
+        if (dead == true)
         {
-            Timer += Time.deltaTime;
+            timer += Time.deltaTime;
         }
  
-        if (Timer >= Cooldown)
+        if (timer >= cooldown)
         {
             //It will create a new Enemy of the same class, at this position.
-            Enemy.transform.position = transform.position;
+            enemy.transform.position = transform.position;
 
-            Instantiate(Enemy);
-            LastEnemy = GameObject.Find(Enemy.name + "(Clone)");
-            LastEnemy.name = EnemyName;
-            Death = false;
-            Timer = 0;
+            Instantiate(enemy);
+            lastEnemy = GameObject.Find(enemy.name + "(Clone)");
+            lastEnemy.name = enemyName;
+            dead = false;
+            timer = 0;
         }
     }
 }
